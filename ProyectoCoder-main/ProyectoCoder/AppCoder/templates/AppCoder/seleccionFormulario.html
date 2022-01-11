@@ -1,0 +1,25 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+    {% block contenidoHead %}
+
+        <h1 class="mb-1">Formulario de Seleccion</h1>
+
+    {% endblock %}
+
+    {% block contenidoDinamico %}
+
+        <form action="/AppCoder/seleccionFormulario/" method="POST"> {% csrf_token %}
+
+            <p>Nombre: <input type="text" name="nombre"></p>
+
+            <p>Tecnico: <input type="text" name="tecnico"></p>
+
+            <p>Continente: <input type="text" name="continente"></p>
+
+            <input type="submit" value="Envio">
+
+        </form>
+
+    {% endblock %}

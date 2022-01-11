@@ -1,0 +1,25 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+    {% block contenidoHead %}
+
+        <h1 class="mb-1">Formulario de Liga</h1>
+
+    {% endblock %}
+
+    {% block contenidoDinamico %}
+
+        <form action="/AppCoder/ligaFormulario/" method="POST"> {% csrf_token %}
+
+            <p>Nombre: <input type="text" name="nombre"></p>
+
+            <p>Cantidad de equipos: <input type="number" name="cantidadDeEquipos"></p>
+
+            <p>Pais: <input type="text" name="pais"></p>
+
+            <input type="submit" value="Envio">
+
+        </form>
+
+    {% endblock %}

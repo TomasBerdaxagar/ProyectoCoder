@@ -1,0 +1,25 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+    {% block contenidoHead %}
+
+        <h1 class="mb-1">Formulario de Arbitro</h1>
+
+    {% endblock %}
+
+    {% block contenidoDinamico %}
+
+        <form action="/AppCoder/arbitroFormulario/" method="POST"> {% csrf_token %}
+
+            <p>Nombre: <input type="text" name="nombre"></p>
+
+            <p>Nacionalidad: <input type="text" name="nacionalidad"></p>
+
+            <p>Edad: <input type="number" name="edad"></p>
+
+            <input type="submit" value="Envio">
+
+        </form>
+
+    {% endblock %}

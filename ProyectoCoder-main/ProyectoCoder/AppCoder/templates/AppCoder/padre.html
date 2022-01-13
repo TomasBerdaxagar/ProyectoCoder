@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Inicio</title>
+        <title>Web de Futbol</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/favicon.ico' %}" />
         <!-- Font Awesome icons (free version)-->
@@ -28,16 +28,32 @@
         <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand"><a href="{% url 'Inicio' %}">Inicio Menu</a></li>
-                <li class="sidebar-nav-item"><a href="{% url 'Equipos' %}">Equipos</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'Jugadores' %}">Jugadores</a></li>
+                <li class="sidebar-nav-item"><a href="{% url 'JugadorFormulario' %}">JugadorFormulario</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'Estadios' %}">Estadios</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'EstadioFormulario' %}">Estadio Formulario</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'Ligas' %}">Ligas</a></li>
                 <li class="sidebar-nav-item"><a href="{% url 'LigaFormulario' %}">Liga Formulario</a></li>
-                <li class="sidebar-nav-item"><a href="{% url 'Arbitros' %}">Arbitros</a></li>
-                <li class="sidebar-nav-item"><a href="{% url 'ArbitroFormulario' %}">Arbitro Formulario</a></li>
-                <li class="sidebar-nav-item"><a href="{% url 'Selecciones' %}">Selecciones</a></li>
-                <li class="sidebar-nav-item"><a href="{% url 'SeleccionFormulario' %}">Seleccion Formulario</a></li>
+                <li class="sidebar-nav-item"><a href="{% url 'QuienesSomos' %}">Quienes Somos</a></li>
+
+
+                {% if not request.user.is_authenticated %}
+                <li class="sidebar-nav-item"><a href="{% url 'Login' %}">Logearse</a></li>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                <li class="sidebar-nav-item"><a href="{% url 'Logout' %}">Deslogearse</a></li>
+                {% endif %}
+
+
+                {% if  request.user.is_authenticated %}
+                <li class="sidebar-nav-item"><a href="">Hola, {{user.username}}</a></li>
+                {% endif %}
+
+
+
+
+
             </ul>
         </nav>
         <!-- Header-->
@@ -50,7 +66,7 @@
 
                 {% endblock %}
 
-                <h3 class="mb-5"><em>Curso Python - 23850</em></h3>
+                <h3 class="mb-5"><em>Bienvenido al Portal del Futbol</em></h3>
                 
             </div>
         </header>
@@ -65,14 +81,9 @@
         <footer class="footer text-center">
             <div class="container px-4 px-lg-5">
                 <ul class="list-inline mb-5">
+                
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="https://github.com/sergioponchioni/ProyectoCoder"><i class="icon-social-github"></i></a>
+                        <a class="social-link rounded-circle text-white" href="https://github.com/TomasBerdaxagar/ProyectoCoder"><i class="icon-social-github"></i></a>
                     </li>
                 </ul>
                 <p class="text-muted small mb-0">Copyright &copy; CoderHouse 2021</p>

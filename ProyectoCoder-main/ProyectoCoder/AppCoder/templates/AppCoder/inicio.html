@@ -1,0 +1,25 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+        {% block contenidoHead %}
+
+            <h1 class="mb-1">Inicio</h1>
+            {% if  request.user.is_authenticated %}
+            <img src="{{ avatar }}" alt="">
+            {% endif %}
+
+        {% endblock %}
+
+        {% block contenidoDinamico %}
+
+
+            <h3>{{ mensaje }}</h3>
+            <h1>Indice</h1>
+
+
+            <p>Esta Pagina fue creada especialmente para los fanaticos del Futbol</p>
+
+
+
+        {% endblock %}
